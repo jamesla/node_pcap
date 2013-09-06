@@ -31,7 +31,13 @@ void PcapSession::Init(Handle<Object> exports) {
       FunctionTemplate::New(Close)->GetFunction());
   tpl->PrototypeTemplate()->Set(String::NewSymbol("stats"),
       FunctionTemplate::New(Stats)->GetFunction());
-
+  /*
+  TODO: JAMES - Uncomment these js prototype mappings once methods are implementated
+  tpl->PrototypeTemplate()->Set(String::NewSymbol("sendpacket"),
+    FunctionTemplate::New(SendPacket)->GetFunction());
+  tpl->PrototypeTemplate()->Set(String::NewSymbol("inject"),
+    FunctionTemplate::New(Inject)->GetFunction());
+  */
   Persistent<Function> constructor = Persistent<Function>::New(tpl->GetFunction());
   exports->Set(String::NewSymbol("PcapSession"), constructor);
 }
@@ -333,3 +339,22 @@ PcapSession::Stats(const Arguments& args)
 
     return scope.Close(stats_obj);
 }
+
+/*
+TODO: JAMES - Write the implementations in C++
+Handle<Value>
+PcapSession::SendPacket(const Arguments& args)
+{
+    return false;
+}
+
+Handle<Value>
+PcapSession::Inject(const Arguments& args)
+{
+    return false;
+}
+
+*/
+
+
+

@@ -88,6 +88,16 @@ Pcap.prototype.stats = function () {
     return this.session.stats();
 };
 
+/* TODO: JAMES - Implement javascript methods 
+Pcap.prototype.sendpacket = function () {
+    return;
+}
+
+Pcap.prototype.inject = function (){
+    return;
+}
+*/
+
 exports.Pcap = Pcap;
 
 exports.createSession = function (device, filter, buffer_size) {
